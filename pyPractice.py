@@ -1,6 +1,3 @@
-
-
-import keyboard
 import time
 import pygame
 import animation
