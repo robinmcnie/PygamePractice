@@ -8,6 +8,8 @@ import animation
 from pygame.locals import *
 
 pygame.init()
+pygame.mixer.init()
+pygame.mixer.music.load('gamesongpractice.mp3')
 DISPLAYSURF = pygame.display.set_mode((1620, 1080))
 pygame.display.set_caption('My_sizeGame')
 
@@ -65,7 +67,7 @@ run = True
 while run:
     DISPLAYSURF.blit(bg_img,(0,0))
     
-    
+    pygame.mixer.music.play(-1)
 
     
     current_time = pygame.time.get_ticks()
