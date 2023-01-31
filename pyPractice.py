@@ -21,7 +21,7 @@ y_size = 50
 width = 40
 height = 60
 vel = 20
-white = (255,255,255)
+white = (255, 255, 255)
 
 
 bg_img = pygame.image.load('1620x1080.jpg')
@@ -40,8 +40,6 @@ frame = 0
 step_counter = 0
 
 
-
-
 for animations in animation_steps:
     temp_img_list = []
     for _ in range(animations):
@@ -49,11 +47,11 @@ for animations in animation_steps:
         step_counter += 1
     animation_list.append(temp_img_list)
 
-#draws window
+# draws window
 # def draw_window():
 #     DISPLAYSURF.fill((200,150,200))
 #     pygame.draw.rect(DISPLAYSURF, (255, 0, 0), (x_size, y_size, width, height))
-    
+
 #     if action == 0:
 #         DISPLAYSURF.blit(animation_list[action][frame], (x_size, y_size))
 #     pygame.display.update()
@@ -62,16 +60,13 @@ for animations in animation_steps:
 musicRun = False
 run = True
 while run:
-    DISPLAYSURF.blit(bg_img,(0,0))
-    
-    if not musicRun:
-        playsound('gamesongpractice.mp3')
-        musicRun = True
-        
+    DISPLAYSURF.blit(bg_img, (0, 0))
 
-    
+    if not musicRun:
+        playsound('gamesongpractice.mp3', block=True)
+        musicRun = True
+
     current_time = pygame.time.get_ticks()
-    
 
     # if action == 5:
     #     if current_time - last_update >= animation_cooldown:
@@ -87,98 +82,83 @@ while run:
     if frame >= len(animation_list[action]):
         frame = 0
     DISPLAYSURF.blit(animation_list[action][frame], (x_size, y_size))
-        
-        
+
     pygame.time.delay(100)
-    
+
     for event in pygame.event.get():
         if event.type == QUIT:
             run = False
 
-    
     keys = pygame.key.get_pressed()
-    
+
     if keys[pygame.K_LEFT] and x_size > vel:
-        if keys[pygame.K_DOWN] and keys[pygame.K_LEFT] and y_size< SCREENHEIGHT - height - vel:
-            y_size+= vel
-            x_size-= vel
+        if keys[pygame.K_DOWN] and keys[pygame.K_LEFT] and y_size < SCREENHEIGHT - height - vel:
+            y_size += vel
+            x_size -= vel
             up = False
             down = True
             left = True
             right = False
             action = 5
-            
-        elif keys[pygame.K_UP] and y_size> vel:
-            y_size-= vel
-            x_size-= vel
+
+        elif keys[pygame.K_UP] and y_size > vel:
+            y_size -= vel
+            x_size -= vel
             up = True
             down = False
             left = False
             right = True
             action = 5
-            
+
         else:
             x_size -= vel
             left = True
             right = False
             frame = 0
             action = 2
-            
 
     elif keys[pygame.K_RIGHT] and x_size < SCREENWIDTH - width - (vel * 4):
-        if keys[pygame.K_DOWN] and y_size< SCREENHEIGHT - height - vel:
-            y_size+= vel
+        if keys[pygame.K_DOWN] and y_size < SCREENHEIGHT - height - vel:
+            y_size += vel
             x_size += vel
             up = False
             down = True
             left = False
             right = True
             action = 5
-            
-        elif keys[pygame.K_UP] and y_size> vel:
-            y_size-= vel
+
+        elif keys[pygame.K_UP] and y_size > vel:
+            y_size -= vel
             x_size += vel
             up = True
             down = False
             left = False
             right = True
             action = 5
-            
+
         else:
             x_size += vel
             left = False
             right = True
             action = 1
 
-            
-            
-        
-    elif keys[pygame.K_UP] and y_size> vel:
-        y_size-= vel
+    elif keys[pygame.K_UP] and y_size > vel:
+        y_size -= vel
         up = True
         down = False
         action = 3
-        
-        
-    
-    elif keys[pygame.K_DOWN] and y_size< SCREENHEIGHT - height - vel:
-        
-        y_size+= vel
+
+    elif keys[pygame.K_DOWN] and y_size < SCREENHEIGHT - height - vel:
+
+        y_size += vel
         up = False
         down = True
         action = 4
-        
-        
+
     elif keys[pygame.K_SPACE]:
-        
+
         action = 5
-            
-            
-        
-        
-        
-        
-        
+
     else:
         left = False
         right = False
@@ -186,15 +166,8 @@ while run:
         down = False
         walkCount = 0
         action = 0
-        
-        
 
-    
     # write code to allow the character to move around the screen
-    
-    
-
-    
 
     pygame.display.update()
     # draw_window()
