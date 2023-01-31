@@ -1,4 +1,4 @@
-import time
+
 import pygame
 import animation
 from playsound import playsound
