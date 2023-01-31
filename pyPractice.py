@@ -63,7 +63,7 @@ while run:
     DISPLAYSURF.blit(bg_img, (0, 0))
 
     if not musicRun:
-        playsound('gamesongpractice.mp3', block=True)
+        playsound('gamesongpractice.mp3', block=False)
         musicRun = True
 
     current_time = pygame.time.get_ticks()
