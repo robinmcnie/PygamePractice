@@ -65,7 +65,7 @@ while run:
     DISPLAYSURF.blit(bg_img,(0,0))
     
     if not musicRun:
-        playsound('gamesongpractice.mp3', block=False)
+        playsound('gamesongpractice.mp3')
         musicRun = True
         
 
