@@ -4,11 +4,11 @@ import keyboard
 import time
 import pygame
 import animation
-
+from playsound import playsound
 from pygame.locals import *
 
 pygame.init()
-pygame.mixer.init()
+
 
 DISPLAYSURF = pygame.display.set_mode((1620, 1080))
 pygame.display.set_caption('My_sizeGame')
@@ -62,13 +62,15 @@ for animations in animation_steps:
 #     pygame.display.update()
 
 # main loop
-
+musicRun = False
 run = True
 while run:
     DISPLAYSURF.blit(bg_img,(0,0))
     
-    music = pygame.mixer.music.load('gamesongpractice.mp3')
-    pygame.mixer.music.play(loops=-1)
+    if not musicRun:
+        playsound('gamesongpractice.mp3', block=False)
+        musicRun = True
+        
 
     
     current_time = pygame.time.get_ticks()
