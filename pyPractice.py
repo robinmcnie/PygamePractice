@@ -6,15 +6,17 @@ from pygame.locals import *
 
 pygame.init()
 
+SCREENWIDTH = 800
+SCREENHEIGHT = 600
+DISPLAYSURF = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT), 0, 32)
 
-DISPLAYSURF = pygame.display.set_mode((1620, 1080))
 pygame.display.set_caption('My_sizeGame')
 
 character = pygame.image.load('character2.png').convert_alpha()
 idle = animation.Animate(character)
 
-SCREENWIDTH = DISPLAYSURF.get_width()
-SCREENHEIGHT = DISPLAYSURF.get_height()
+SCREENWIDTH = 800
+SCREENHEIGHT = 600
 
 x_size = 50
 y_size = 50
