@@ -8,6 +8,7 @@ pygame.init()
 
 SCREENWIDTH = 800
 SCREENHEIGHT = 600
+
 DISPLAYSURF = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT), 0, 32)
 
 pygame.display.set_caption('My_sizeGame')
